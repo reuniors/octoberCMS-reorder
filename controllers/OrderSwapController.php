@@ -13,6 +13,7 @@ class OrderSwapController extends ControllerBehavior
     {
         parent::__construct($controller);
         $this->addJs('/plugins/reuniors/reorder/assets/orderSwap.js');
+        $this->addCss('/plugins/reuniors/reorder/assets/orderSwap.css');
     }
 
     public function onOrderSwap()

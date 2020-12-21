@@ -29,14 +29,13 @@ class Plugin extends PluginBase
         ]);
         return "
             <button
-                class='btn btn-cyan reorder-order-switch $recordClassName initial-state'
+                class='btn btn-cyan reorder-order-swap $recordClassName initial-state'
                 data-prepare-data='$prepareData'
                 data-class-name='$recordClassName'
                 type='button'
-                data-cancel-title='Cancel switch'
-                data-switch-title='Swap'
+                data-cancel-title='Cancel swap'
+                data-swap-title='Swap'
                 data-value='$value'
-                style='color: #000; min-width: 80px'
             >
                 $value
             </button>

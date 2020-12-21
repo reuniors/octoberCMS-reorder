@@ -11,7 +11,7 @@ $.fn.swapParentRows = function($elem) {
 $(document).ready(function () {
     var addedSwap = {}
     var clonedElements = {}
-    var $reorderSwaps = $('.reorder-order-switch.initial-state')
+    var $reorderSwaps = $('.reorder-order-swap.initial-state')
     var cancelSwapBtnName = '#cancelSwapBtn'
     var addToolbarBtn = function (data, $btn) {
         $(cancelSwapBtnName).remove()
@@ -43,6 +43,7 @@ $(document).ready(function () {
         var data = $this.data('prepare-data')
         data.value = $this.data('value')
         if (!data.recordIdentifier || ($activeTh && $activeTh.index() !== $currentTd.index())) {
+            alert('You must first order by ' + data.columnName + ' column')
             return false
         }
         $this.removeClass('initial-state')
@@ -53,8 +54,8 @@ $(document).ready(function () {
         }
         if (addedSwap[data.recordIdentifier] >= 0) {
             data.oldValue = addedSwap[data.recordIdentifier]
-            var $currentReorderSwaps = $('.reorder-order-switch.' + dataClassName)
-            var $activeReorderSwaper = $('.reorder-order-switch.btn-warning.' + dataClassName)
+            var $currentReorderSwaps = $('.reorder-order-swap.' + dataClassName)
+            var $activeReorderSwaper = $('.reorder-order-swap.btn-warning.' + dataClassName)
             $currentReorderSwaps.prop('disabled', true);
             $this.request('onOrderSwap', {
                 data: data,
@@ -84,7 +85,6 @@ $(document).ready(function () {
             clonedElements[data.recordIdentifier] = $this.closest('tr').clone()
             addToolbarBtn(data, $this)
         }
-        console.log(data)
     }
 
     function updateSwapsEvent ($reorderSwaps) {
@@ -94,7 +94,7 @@ $(document).ready(function () {
             var $currentTd = $this.closest('td')
             var $activeTh = $('th.active', $table)
             if (!$this.hasClass('btn-warning') && $activeTh && $activeTh.index() === $currentTd.index() ) {
-                $this.html($this.data('switch-title'))
+                $this.html($this.data('swap-title'))
             }
         }, function () {
             var $this = $(this)
@@ -113,7 +113,7 @@ $(document).ready(function () {
     updateSwapsEvent($reorderSwaps)
 
     $(document).on('render', function () {
-        $reorderSwaps = $('.reorder-order-switch.initial-state')
+        $reorderSwaps = $('.reorder-order-swap.initial-state')
         updateSwapsEvent($reorderSwaps)
     })
 })
