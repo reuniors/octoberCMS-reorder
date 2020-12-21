@@ -1,0 +1,6 @@
+plugin:
+    name: 'reuniors.reorder::lang.plugin.name'
+    description: 'reuniors.reorder::lang.plugin.description'
+    author: Reuniors
+    icon: oc-icon-reorder
+    homepage: ''
