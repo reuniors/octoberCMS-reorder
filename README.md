@@ -5,7 +5,7 @@ Swap two items in list, just by clicking on generated button in `order` column.
 Before you can swap items, you must order by that column (Asc or Desc)
 Working with pagination, search and other filters.
 Working for simple relations (relation list view - partial)
-### Not (yet) working if Relation is N-N or Nested (BelongsToMany, NestedTree) **for now**
+### Not (yet) working if Relation is N-N (not working if sort_order is in pivot table) or Nested (BelongsToMany, NestedTree) **for now**
 
 ## How to enable Swap button in order column:
 In backend Controller of your plugin ({yourPlugin}/controller/{nameOfController}.php), 
